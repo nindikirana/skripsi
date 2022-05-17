@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".panduan.PanduanActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Panduan Penggunaan Aplikasi Acfix"
+                android:textAlignment="center"
+                android:layout_marginLeft="16dp"
+                android:textStyle="bold"
+                android:textColor="#70376c"
+                android:textSize="24sp"/>
+
+            <View
+                android:background="#b893b5"
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deteksi Kerusakan AC"
+                android:layout_marginTop="28dp"
+                android:textStyle="bold"
+                android:textColor="#855281"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1. Memilih menu Deteksi."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Menjawab pertanyaan dengan memilih jawaban YA atau TIDAK (sesuai dengan gejala kerusakan AC yang dialami)."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Jika sudah selesai, mengeklik tombol Hasil untuk mengetahui hasil deteksi kerusakan yang dilakukan. "
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4. Menampilkan informasi hasil Kerusakan, Daftar gejala yang telah dipilih, dan solusi untuk penanganannya."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daftar Gejala"
+                android:layout_marginTop="24dp"
+                android:textColor="#855281"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1. Memilih menu Gejala."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Memilih salah satu gejala, untuk melihat detail gejala."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Menampilkan detail gejala berupa beberapa kemungkinan kerusakan yang terjadi beserta solusi penanganannya."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daftar Kerusakan"
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:textColor="#855281"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1. Memilih menu Kerusakan."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Memilih salah satu kerusakan, untuk melihat detail kerusakan."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Menampilkan detail kerusakan berupa beberapa gejala yang terjadi beserta solusi penanganannya."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pakar"
+                android:textColor="#855281"
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1. Memilih menu Pakar."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Dapat melihat informasi mengenai pakar untuk pengembangan aplikasi sistem pakar deteksi kerusakan AC."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tentang"
+                android:layout_marginTop="24dp"
+                android:textStyle="bold"
+                android:textColor="#855281"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1. Memilih menu Tentang."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Dapat melihat mengenai informasi aplikasi, versi aplikasi saat ini, dan pengembang aplikasi sistem pakar deteksi kerusakan AC."
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

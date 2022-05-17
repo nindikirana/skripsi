@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.nndkrnaf.acfix">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Acfix"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".pengetahuan.activity.DetailKerusakanActivity"
+            android:exported="false"
+            android:label="Detail Kerusakan"/>
+        <activity
+            android:name=".pengetahuan.activity.DetailGejalaActivity"
+            android:exported="false"
+            android:label="Detail Gejala" />
+        <activity
+            android:name=".gejala.activity.GejalaActivity"
+            android:exported="false"
+            android:label="Daftar Gejala" />
+        <activity
+            android:name=".tentang.TentangActivity"
+            android:exported="false"
+            android:label="Tentang" />
+        <activity
+            android:name=".pakar.PakarActivity"
+            android:exported="false"
+            android:label="Pakar" />
+        <activity
+            android:name=".kerusakan.activity.KerusakanActivity"
+            android:exported="false"
+            android:label="Daftar Kerusakan" />
+        <activity
+            android:name=".panduan.PanduanActivity"
+            android:exported="false"
+            android:label="Panduan" />
+        <activity
+            android:name=".deteksi.DeteksiActivity"
+            android:exported="false"
+            android:label="Deteksi" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="Dashboard" />
+        <activity
+            android:name=".SplashscreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Splashscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
