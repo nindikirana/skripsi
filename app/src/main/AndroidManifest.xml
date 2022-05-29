@@ -15,9 +15,57 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".admin.leveluser.crud.InsertAdminLevelUserActivity"
+            android:exported="false"
+            android:label="Create Level User"/>
+        <activity
+            android:name=".admin.leveluser.crud.EditAdminLevelUserActivity"
+            android:exported="false"
+            android:label="Edit Delete Level User"/>
+        <activity
+            android:name=".admin.gejala.AdminGejalaActivity"
+            android:exported="false"
+            android:label="Gejala" />
+        <activity
+            android:name=".admin.user.AdminUserActivity"
+            android:exported="false"
+            android:label="User" />
+        <activity
+            android:name=".admin.leveluser.activity.AdminLevelUserActivity"
+            android:exported="false"
+            android:label="Level User" />
+        <activity
+            android:name=".admin.kerusakan.AdminKerusakanActivity"
+            android:exported="false"
+            android:label="Kerusakan" />
+        <activity
+            android:name=".admin.hasildeteksi.AdminHasilDeteksiActivity"
+            android:exported="false"
+            android:label="Hasil Deteksi" />
+        <activity
+            android:name=".admin.pengetahuan.AdminPengetahuanActivity"
+            android:exported="false"
+            android:label="Pengetahuan" />
+        <activity
+            android:name=".HasilDeteksiActivity"
+            android:exported="false"
+            android:label="Hasil Deteksi" />
+        <activity
+            android:name=".registration.activity.RegistrationActivity"
+            android:exported="false"
+            android:label="Registration" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false"
+            android:label="Dashboard" />
+        <activity
+            android:name=".login.activity.LoginActivity"
+            android:exported="false"
+            android:label="Login" />
+        <activity
             android:name=".pengetahuan.activity.DetailKerusakanActivity"
             android:exported="false"
-            android:label="Detail Kerusakan"/>
+            android:label="Detail Kerusakan" />
         <activity
             android:name=".pengetahuan.activity.DetailGejalaActivity"
             android:exported="false"
@@ -43,7 +91,7 @@
             android:exported="false"
             android:label="Panduan" />
         <activity
-            android:name=".deteksi.DeteksiActivity"
+            android:name=".deteksi.activity.DeteksiActivity"
             android:exported="false"
             android:label="Deteksi" />
         <activity

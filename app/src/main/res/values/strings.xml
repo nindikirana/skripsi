@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Acfix</string>
     <string name="acfix">ACFIX</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
 </resources>

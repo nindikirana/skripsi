@@ -7,8 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.nndkrnaf.acfix.deteksi.DeteksiActivity;
+import com.nndkrnaf.acfix.deteksi.activity.DeteksiActivity;
 import com.nndkrnaf.acfix.gejala.activity.GejalaActivity;
 import com.nndkrnaf.acfix.kerusakan.activity.KerusakanActivity;
 import com.nndkrnaf.acfix.pakar.PakarActivity;
@@ -16,7 +17,8 @@ import com.nndkrnaf.acfix.panduan.PanduanActivity;
 import com.nndkrnaf.acfix.tentang.TentangActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private CardView deteksiCard, panduanCard, gejalaCard, kerusakanCard, pakarCard, tentangCard;
+    private CardView deteksiCard, hasilDeteksiCard, gejalaCard, kerusakanCard, pakarCard, tentangCard;
+    private TextView tvPanduan;
     //AnimationDrawable animationDrawable;
     LinearLayout linearLayout;
 
@@ -31,15 +33,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        animationDrawable.setEnterFadeDuration(5000);
 //        animationDrawable.setExitFadeDuration(2000);
 
+        tvPanduan = (TextView) findViewById(R.id.tvPanduan);
         deteksiCard = (CardView) findViewById(R.id.cvDeteksi);
-        panduanCard = (CardView) findViewById(R.id.cvPanduan);
+        hasilDeteksiCard = (CardView) findViewById(R.id.cvHasilDeteksi);
         gejalaCard = (CardView) findViewById(R.id.cvGejala);
         kerusakanCard = (CardView) findViewById(R.id.cvKerusakan);
         pakarCard = (CardView) findViewById(R.id.cvPakar);
         tentangCard = (CardView) findViewById(R.id.cvTentang);
 
+        tvPanduan.setOnClickListener(this);
         deteksiCard.setOnClickListener(this);
-        panduanCard.setOnClickListener(this);
+        hasilDeteksiCard.setOnClickListener(this);
         gejalaCard.setOnClickListener(this);
         kerusakanCard.setOnClickListener(this);
         pakarCard.setOnClickListener(this);
@@ -68,8 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Intent i;
         switch (v.getId()){
+            case R.id.tvPanduan: i = new Intent(this, PanduanActivity.class);startActivity(i);break;
             case R.id.cvDeteksi: i = new Intent(this, DeteksiActivity.class);startActivity(i);break;
-            case R.id.cvPanduan: i = new Intent(this, PanduanActivity.class);startActivity(i);break;
+            case R.id.cvHasilDeteksi: i = new Intent(this, HasilDeteksiActivity.class);startActivity(i);break;
             case R.id.cvGejala: i = new Intent(this, GejalaActivity.class);startActivity(i);break;
             case R.id.cvKerusakan: i = new Intent(this, KerusakanActivity.class);startActivity(i);break;
             case R.id.cvPakar: i = new Intent(this, PakarActivity.class);startActivity(i);break;

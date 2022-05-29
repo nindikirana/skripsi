@@ -13,7 +13,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="40dp"
+            android:paddingTop="20dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
             android:orientation="vertical">
 
             <TextView
@@ -28,7 +30,7 @@
 
             <View
                 android:background="#b893b5"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"/>
 
@@ -36,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Deteksi Kerusakan AC"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="20dp"
                 android:textStyle="bold"
                 android:textColor="#855281"
                 android:textSize="18sp"/>

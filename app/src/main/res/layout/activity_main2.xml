@@ -8,7 +8,7 @@
     android:id="@+id/linearLayout"
     android:background="#855281"
     android:weightSum="10"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity2">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,22 +56,7 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/tvPanduan"
-            android:layout_width="66dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvsp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="172dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="172dp"
-            android:layout_marginBottom="19dp"
-            android:text="Panduan"
-            android:textColor="@android:color/holo_orange_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+
     </RelativeLayout>
 
     <GridLayout
@@ -89,9 +74,9 @@
 
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/cvDeteksi"
+            android:id="@+id/cv_A_Pengetahuan"
             android:clickable="true"
-            android:onClick="cv_deteksi"
+            android:onClick="cv_a_pengetahuan"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -122,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
-                    android:text="Deteksi"
+                    android:text="Pengetahuan"
                     android:textColor="@color/white"
                     android:textSize="14sp"/>
             </LinearLayout>
@@ -130,9 +115,9 @@
 
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/cvHasilDeteksi"
+            android:id="@+id/cv_A_Hasil_Deteksi"
             android:clickable="true"
-            android:onClick="cv_hasil_deteksi"
+            android:onClick="cv_a_hasil_deteksi"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -171,9 +156,9 @@
 
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/cvGejala"
+            android:id="@+id/cv_A_Gejala"
             android:clickable="true"
-            android:onClick="cv_gejala"
+            android:onClick="cv_a_gejala"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -212,9 +197,9 @@
 
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/cvKerusakan"
+            android:id="@+id/cv_A_Kerusakan"
             android:clickable="true"
-            android:onClick="cv_kerusakan"
+            android:onClick="cv_a_kerusakan"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -253,9 +238,9 @@
 
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/cvPakar"
+            android:id="@+id/cv_A_User"
             android:clickable="true"
-            android:onClick="cv_pakar"
+            android:onClick="cv_a_user"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -285,7 +270,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Pakar"
+                    android:text="User"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/white"
                     android:textSize="14sp"/>
@@ -294,9 +279,9 @@
 
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/cvTentang"
+            android:id="@+id/cv_A_Level_User"
             android:clickable="true"
-            android:onClick="cv_tentang"
+            android:onClick="cv_a_level_user"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -326,7 +311,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Tentang"
+                    android:text="Level_User"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/white"
                     android:textSize="14sp"/>

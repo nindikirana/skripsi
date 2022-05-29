@@ -1,9 +1,10 @@
-package com.nndkrnaf.acfix.deteksi;
+package com.nndkrnaf.acfix.deteksi.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -61,14 +62,9 @@ public class DeteksiActivity extends AppCompatActivity {
 
                 if (listDeteksiData != null) {
                     if (!Objects.equals(listDeteksiData.get(i).getYa(), "")) {
-                        Collection<ListDeteksiData> data = Collections2.filter(listDeteksiData, new Predicate<ListDeteksiData>() {
-                            @Override
-                            public boolean apply(ListDeteksiData input) {
-                                return input.getIdDeteksi().equals(listDeteksiData.get(i).getYa());
-                            }
-                        });
+                        Collection<ListDeteksiData> males = Collections2.filter(listDeteksiData, user -> user.getIdGejala().equals(listDeteksiData.get(i).getYa()));
                         i = i + 1;
-                        tvPertanyaan.setText(data.toString());
+                        tvPertanyaan.setText(males.toString());
                     }else{
                         Toast.makeText(getApplicationContext(),"Selesai",Toast.LENGTH_LONG).show();
                     }
@@ -80,12 +76,17 @@ public class DeteksiActivity extends AppCompatActivity {
     }
 
     private void getDeteksi() {
-        requestInterface.getDeteksi("").enqueue(new Callback<ListDeteksi>() {
+        Log.d("NINDI KIRANA","TERPANGGIL");
+        requestInterface.getDeteksi().enqueue(new Callback<ListDeteksi>() {
             @Override
             public void onResponse(Call<ListDeteksi> call, Response<ListDeteksi> response) {
+                Log.d("YOLO", String.valueOf(response.code()));
                 if (response.isSuccessful()) {
+
                     if (response.code() == 200) {
+
                         listDeteksiData = response.body().getData();
+                        Log.d("NINDI KI",listDeteksiData.get(i).getPertanyaan());
                         tvPertanyaan.setText(listDeteksiData.get(0).getPertanyaan());
                     }
                 }
@@ -93,7 +94,7 @@ public class DeteksiActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ListDeteksi> call, Throwable t) {
-
+                Log.d("NINDI KI ERROR", String.valueOf(t));
             }
         });
     }
