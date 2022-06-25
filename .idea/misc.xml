@@ -11,27 +11,47 @@
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/drawable/mybutton.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/drawable/shape.xml" value="0.19166666666666668" />
-        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_admin_level_user.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_admin_gejala.xml" value="0.25" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_admin_kerusakan.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_admin_level_user.xml" value="0.1" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_admin_pengetahuan.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_admin_user.xml" value="0.1" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_detail_gejala.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_detail_kerusakan.xml" value="0.1796875" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_deteksi.xml" value="0.22" />
-        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_edit_admin_level_user.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_edit_admin_gejala.xml" value="0.1" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_edit_admin_kerusakan.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_edit_admin_level_user.xml" value="0.1" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_edit_admin_user.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_gejala.xml" value="0.1796875" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_hasil_deteksi.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_insert_admin_gejala.xml" value="0.11730072463768115" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_insert_admin_kerusakan.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_insert_admin_level_user.xml" value="0.17395833333333333" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_insert_admin_pengetahuan.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_insert_admin_user.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_kerusakan.xml" value="0.22" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_main2.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_pakar.xml" value="0.22" />
-        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_panduan.xml" value="0.22" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_panduan.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_profile.xml" value="0.22" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_registration.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_rule.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_splashscreen.xml" value="0.22" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/activity_tentang.xml" value="0.22" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/admin_gejala_list.xml" value="0.1" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/admin_kerusakan_list.xml" value="0.1" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/admin_level_user_list.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/admin_pengetahuan_list.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/admin_user_list.xml" value="0.1" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/animation_list.xml" value="0.1796875" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/gejala_list.xml" value="0.1" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/hasil_deteksi_list.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/item_gejala.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/kerusakan_list.xml" value="0.1" />
+        <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/list_custom_sp.xml" value="0.1" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/pengetahuan_gejala_list.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/pengetahuan_kerusakan_list.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/nindikiranafr/Acfix/app/src/main/res/layout/pengetahuan_list.xml" value="0.16666666666666666" />
@@ -45,5 +65,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.17552083333333332" />
+      </ProjectState>
+    </option>
   </component>
 </project>

@@ -6,18 +6,20 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.nndkrnaf.acfix.admin.gejala.AdminGejalaActivity;
+import com.nndkrnaf.acfix.admin.gejala.activity.AdminGejalaActivity;
 import com.nndkrnaf.acfix.admin.hasildeteksi.AdminHasilDeteksiActivity;
-import com.nndkrnaf.acfix.admin.kerusakan.AdminKerusakanActivity;
+import com.nndkrnaf.acfix.admin.kerusakan.activity.AdminKerusakanActivity;
 import com.nndkrnaf.acfix.admin.leveluser.activity.AdminLevelUserActivity;
-import com.nndkrnaf.acfix.admin.pengetahuan.AdminPengetahuanActivity;
-import com.nndkrnaf.acfix.admin.user.AdminUserActivity;
+import com.nndkrnaf.acfix.admin.pengetahuan.activity.AdminPengetahuanActivity;
+import com.nndkrnaf.acfix.admin.user.activity.AdminUserActivity;
 
 public class MainActivity2 extends AppCompatActivity implements View.OnClickListener{
 
     private CardView pengetahuanCard, hasilDeteksiCard, gejalaCard, kerusakanCard, userCard, levelUserCard;
+    private ImageView imgProfile;
     LinearLayout linearLayout;
 
     @Override
@@ -37,6 +39,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         kerusakanCard = (CardView) findViewById(R.id.cv_A_Kerusakan);
         userCard = (CardView) findViewById(R.id.cv_A_User);
         levelUserCard = (CardView) findViewById(R.id.cv_A_Level_User);
+        imgProfile = (ImageView) findViewById(R.id.ivProfile);
 
         pengetahuanCard.setOnClickListener(this);
         hasilDeteksiCard.setOnClickListener(this);
@@ -44,6 +47,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         kerusakanCard.setOnClickListener(this);
         userCard.setOnClickListener(this);
         levelUserCard.setOnClickListener(this);
+        imgProfile.setOnClickListener(this);
     }
 
 //    @Override
@@ -74,6 +78,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             case R.id.cv_A_Kerusakan: i = new Intent(this, AdminKerusakanActivity.class);startActivity(i);break;
             case R.id.cv_A_User: i = new Intent(this, AdminUserActivity.class);startActivity(i);break;
             case R.id.cv_A_Level_User: i = new Intent(this, AdminLevelUserActivity.class);startActivity(i);break;
+            case R.id.ivProfile: i = new Intent(this, ProfileActivity.class);startActivity(i);break;
             default:break;
         }
     }

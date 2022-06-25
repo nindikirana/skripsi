@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvIdHasilDeteksi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Id Hasil Deteksi"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvIdUserHasilDeteksi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Id User"
+            android:layout_below="@+id/tvIdHasilDeteksi"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tvNamaGejalaHasilDeteksi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gejala"
+            android:layout_below="@+id/tvIdUserHasilDeteksi"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/tvNamaKerusakanHasilDeteksi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kerusakan"
+            android:layout_below="@+id/tvNamaGejalaHasilDeteksi"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/tvSolusiHasilDeteksi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Solusi"
+            android:layout_below="@+id/tvNamaKerusakanHasilDeteksi"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+    <View
+        android:background="#855281"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</LinearLayout>

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SharedPrefManager {
-    private static String Id_User="Id_User";
+    public static final String SP_IDUSER="spIdUser";
     public static final String SP_USERNAME = "spUsername";
     public static final String SP_EMAIL = "spEmail";
     public static final String SP_PASSWORD = "spPassword";
@@ -42,8 +42,8 @@ public class SharedPrefManager {
         spEditor.commit();
     }
 
-    public static String getIdUser() {
-        return Id_User;
+    public String getId_User(){
+        return sp.getString(SP_IDUSER, "");
     }
     public String getSpUsername(){
         return sp.getString(SP_USERNAME, "");

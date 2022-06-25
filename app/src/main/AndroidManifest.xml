@@ -15,19 +15,62 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".admin.pengetahuan.crud.EditAdminPengetahuanActivity"
+            android:exported="false"
+            android:label="Edit Delete Pengetahuan"/>
+        <activity
+            android:name=".admin.pengetahuan.crud.InsertAdminPengetahuanActivity"
+            android:exported="false"
+            android:label="Create Pengetahuan"/>
+        <activity
+            android:name=".admin.kerusakan.crud.EditAdminKerusakanActivity"
+            android:exported="false"
+            android:label="Edit Delete Kerusakan"/>
+        <activity
+            android:name=".admin.kerusakan.crud.InsertAdminKerusakanActivity"
+            android:exported="false"
+            android:label="Create Kerusakan"/>
+        <activity
+            android:name=".admin.gejala.crud.EditAdminGejalaActivity"
+            android:exported="false"
+            android:label="Edit Delete Gejala"/>
+
+        <activity
+            android:name=".admin.gejala.crud.InsertAdminGejalaActivity"
+            android:exported="false"
+            android:label="Insert Gejala"/>
+
+        <activity
+            android:name=".admin.user.crud.EditAdminUserActivity"
+            android:exported="false"
+            android:label="Edit Delete User"/>
+        <activity
+            android:name=".admin.user.crud.InsertAdminUserActivity"
+            android:exported="false"
+            android:label="Create User"/>
+        <activity
+            android:name=".rules.activity.RuleActivity"
+            android:exported="false"
+            android:label="Deteksi Kerusakan AC"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:label="Profile" />
+        <activity
             android:name=".admin.leveluser.crud.InsertAdminLevelUserActivity"
             android:exported="false"
-            android:label="Create Level User"/>
+            android:label="Create Level User" />
         <activity
             android:name=".admin.leveluser.crud.EditAdminLevelUserActivity"
             android:exported="false"
-            android:label="Edit Delete Level User"/>
+            android:label="Edit Delete Level User" />
         <activity
-            android:name=".admin.gejala.AdminGejalaActivity"
+            android:name=".admin.gejala.activity.AdminGejalaActivity"
             android:exported="false"
             android:label="Gejala" />
         <activity
-            android:name=".admin.user.AdminUserActivity"
+            android:name=".admin.user.activity.AdminUserActivity"
             android:exported="false"
             android:label="User" />
         <activity
@@ -35,7 +78,7 @@
             android:exported="false"
             android:label="Level User" />
         <activity
-            android:name=".admin.kerusakan.AdminKerusakanActivity"
+            android:name=".admin.kerusakan.activity.AdminKerusakanActivity"
             android:exported="false"
             android:label="Kerusakan" />
         <activity
@@ -43,7 +86,7 @@
             android:exported="false"
             android:label="Hasil Deteksi" />
         <activity
-            android:name=".admin.pengetahuan.AdminPengetahuanActivity"
+            android:name=".admin.pengetahuan.activity.AdminPengetahuanActivity"
             android:exported="false"
             android:label="Pengetahuan" />
         <activity

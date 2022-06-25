@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    public static String BASE_URL = "https://80b4-112-215-241-79.ap.ngrok.io/Acfixapi/api/";
+    public static String BASE_URL = "https://4f65-140-213-48-210.ap.ngrok.io/Acfixapi/api/";
     public static Retrofit retrofit;
 
     public static  Retrofit getApiClient(){

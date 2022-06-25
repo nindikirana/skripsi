@@ -38,9 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-
         sharedPrefManager = new SharedPrefManager(this);
 
         if (sharedPrefManager.getSPSudahLogin()) {
@@ -73,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                 String Email = email.getText().toString();
                 String Password = password.getText().toString();
 
-                Retrofit retrofit = new Retrofit.Builder().baseUrl("https://80b4-112-215-241-79.ap.ngrok.io/Acfixapi/")
+                Retrofit retrofit = new Retrofit.Builder().baseUrl("https://4f65-140-213-48-210.ap.ngrok.io/Acfixapi/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
 
@@ -88,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (response.body().getSuccess() == 1) {
                                 Log.e("cccc", "onResponse: " + response.body().getIdLevel());
                                 sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+                                sharedPrefManager.saveSPString(SharedPrefManager.SP_IDUSER, response.body().getIdUser());
                                 sharedPrefManager.saveSPString(SharedPrefManager.SP_USERNAME, response.body().getUsername());
                                 sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, response.body().getEmail());
                                 sharedPrefManager.saveSPString(SharedPrefManager.SP_PASSWORD, response.body().getPassword());
@@ -99,10 +97,12 @@ public class LoginActivity extends AppCompatActivity {
                                     //admin
                                     Intent i = new Intent(LoginActivity.this, MainActivity2.class);
                                     startActivity(i);
+                                    finish();
                                 } else {
                                     //user
                                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(i);
+                                    finish();
                                 }
                             } else {
                                 Toast.makeText(LoginActivity.this, "Email salah", Toast.LENGTH_LONG).show();
@@ -121,15 +121,5 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return true;
-
     }
 }

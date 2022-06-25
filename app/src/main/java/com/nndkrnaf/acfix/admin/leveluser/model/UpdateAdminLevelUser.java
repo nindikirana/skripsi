@@ -17,4 +17,20 @@ public class UpdateAdminLevelUser {
 	public boolean isStatus(){
 		return status;
 	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "UpdateAdminLevelUser{" +
+				"message='" + message + '\'' +
+				", status=" + status +
+				'}';
+	}
 }

@@ -51,14 +51,14 @@
                 android:id="@+id/btUpdate2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#F67170"
+                android:backgroundTint="#70376c"
                 android:text="Update" />
 
             <Button
                 android:id="@+id/btDelete2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#F67170"
+                android:backgroundTint="#C0C0C0"
                 android:text="Delete" />
 
         </LinearLayout>

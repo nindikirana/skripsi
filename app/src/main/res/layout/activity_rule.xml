@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".rules.activity.RuleActivity">
+
+       <RelativeLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <TextView
+               android:text="Silahkan pilih gejala kerusakan yang dialami"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="16sp"
+               android:textStyle="bold"
+               android:id="@+id/tvAtas"
+               android:textColor="#70376c"
+               android:paddingBottom="16dp"
+               android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"
+               android:layout_gravity="center"/>
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/rvListGejala"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_above="@id/layoutBawah"
+               android:layout_below="@id/tvAtas" />
+
+         <LinearLayout
+
+             android:layout_alignParentBottom="true"
+             android:id="@+id/layoutBawah"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+             <Button
+                 android:id="@+id/btSubmitRule"
+                 android:textColor="@android:color/white"
+                 android:layout_margin="4dp"
+                 android:layout_gravity="center_horizontal"
+                 android:text="Submit"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"/>
+
+             <Button
+                 android:text="Clear"
+                 android:textColor="@color/white"
+                 android:layout_margin="2dp"
+                 android:layout_gravity="right"
+                 android:id="@+id/btClearRule"
+                 android:backgroundTint="#C0C0C0"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"/>
+
+         </LinearLayout>
+
+       </RelativeLayout>
+</LinearLayout>

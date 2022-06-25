@@ -53,6 +53,70 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dosen Pembimbing"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Ali Mustopa., M.Kom"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="190302192"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sistem Informasi"
+                android:gravity="center"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fakultas Ilmu Komputer"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Universitas Amikom Yogyakarta"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+
+
+            <View
+                android:background="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgDev"
                 android:paddingTop="30dp"
@@ -124,11 +188,6 @@
                 android:gravity="center"
                 android:textSize="14sp"/>
 
-<!--            <View-->
-<!--                android:background="@color/white"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="1dp"/>-->
 
             <TextView
                 android:layout_width="match_parent"
