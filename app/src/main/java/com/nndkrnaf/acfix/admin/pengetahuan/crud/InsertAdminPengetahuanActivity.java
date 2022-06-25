@@ -70,7 +70,8 @@ public class InsertAdminPengetahuanActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ListAdminKerusakan> call, Response<ListAdminKerusakan> response) {
                 if (response.isSuccessful()) {
-                    if (response.body().isStatus()) {
+                    if (response.code()==200) {
+                        Log.d("SIZE KERUSAKAN", String.valueOf(response.body().getData().size()));
                         setSpinnerKerusakanData(response.body().getData());
                     }
                 }
@@ -135,12 +136,9 @@ public class InsertAdminPengetahuanActivity extends AppCompatActivity {
 
     private void setSpinnerKerusakanData(List<ListAdminKerusakanData> data) {
         List<String> stringData = new ArrayList<>();
-        final List<String> stringIdData = new ArrayList<>();
         int position = 0;
         for (ListAdminKerusakanData pengetahuanData : data) {
             stringData.add(pengetahuanData.getIdKerusakan());
-            //stringIdData.add(pengetahuanData.getNamaKerusakan());
-            //stringIdData.add(pengetahuanData.getSolusi());
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
@@ -153,7 +151,7 @@ public class InsertAdminPengetahuanActivity extends AppCompatActivity {
         spIdKerusakan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedKerusakan = stringIdData.get(position);
+                selectedKerusakan = stringData.get(position);
             }
 
             @Override
@@ -167,7 +165,6 @@ public class InsertAdminPengetahuanActivity extends AppCompatActivity {
 
     private void setSpinnerGejalaData(List<ListAdminGejalaData> data) {
         List<String> stringData = new ArrayList<>();
-        final List<String> stringIdData = new ArrayList<>();
         int position = 0;
         for (ListAdminGejalaData pengetahuanData : data) {
             stringData.add(pengetahuanData.getIdGejala());
@@ -184,7 +181,7 @@ public class InsertAdminPengetahuanActivity extends AppCompatActivity {
         spIdGejala.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedGejala = stringIdData.get(position);
+                selectedGejala = stringData.get(position);
             }
 
             @Override

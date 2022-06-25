@@ -54,7 +54,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String Email = email.getText().toString();
                 String Password = password.getText().toString();
                 String Cpassword = c_password.getText().toString();
-                Retrofit retrofit = new Retrofit.Builder().baseUrl("https://4f65-140-213-48-210.ap.ngrok.io/Acfixapi/")
+                Retrofit retrofit = new Retrofit.Builder().baseUrl("https://de5e-140-213-48-210.ap.ngrok.io/Acfixapi/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
 

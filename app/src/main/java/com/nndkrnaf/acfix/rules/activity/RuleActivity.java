@@ -34,12 +34,10 @@ public class RuleActivity extends AppCompatActivity implements RuleView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rule);
-        initPresenter();
         rv = findViewById(R.id.rvListGejala);
         btSubmit = findViewById(R.id.btSubmitRule);
         btClear = findViewById(R.id.btClearRule);
-
-
+        initPresenter();
     }
 
     private void initPresenter() {
@@ -92,12 +90,13 @@ public class RuleActivity extends AppCompatActivity implements RuleView {
     }
 
     private void initAdapter(ListGejala body) {
+        rv.setItemViewCacheSize(body.getData().size());
         adapter = new RuleAdapter(body.getData());
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setHasFixedSize(true);
         rv.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
         idGejalaList = adapter.getIdGejalaList();
+
     }
 
     @Override
