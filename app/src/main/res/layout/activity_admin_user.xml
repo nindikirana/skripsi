@@ -9,11 +9,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:padding="16dp"
-        android:layout_below="@+id/btnInsert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@+id/btnInsert"
+        android:padding="16dp" />
 
     <Button
         android:id="@+id/btnInsert"

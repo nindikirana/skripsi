@@ -1,6 +1,7 @@
 package com.nndkrnaf.acfix.rules.presenter;
 
 import com.nndkrnaf.acfix.gejala.model.ListGejala;
+import com.nndkrnaf.acfix.hasil_deteksi.model.AddHasilDeteksi;
 import com.nndkrnaf.acfix.rules.interfaces.RuleView;
 import com.nndkrnaf.acfix.rules.model.RuleResponse;
 import com.nndkrnaf.acfix.utils.RequestInterface;
@@ -61,6 +62,27 @@ public class RulePresenter {
             @Override
             public void onFailure(Call<RuleResponse> call, Throwable t) {
                 view.onError(String.valueOf(t));
+            }
+        });
+    }
+
+    public void sendDeteksi(String idUser, String idKerusakan, String namaGejala){
+        client.createHasilDeteksi(idUser,idKerusakan, namaGejala).enqueue(new Callback<AddHasilDeteksi>() {
+            @Override
+            public void onResponse(Call<AddHasilDeteksi> call, Response<AddHasilDeteksi> response) {
+                if (response.isSuccessful()){
+                    if(response.code()==201){
+                        view.onSendDeteksiSuccess(response.body());
+                    }else{
+                        view.onSendDeteksiError(response.message());
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AddHasilDeteksi> call, Throwable t) {
+                view.onSendDeteksiError(t.toString());
             }
         });
     }

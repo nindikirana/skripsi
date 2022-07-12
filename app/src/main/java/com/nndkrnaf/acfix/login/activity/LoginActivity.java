@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                 String Email = email.getText().toString();
                 String Password = password.getText().toString();
 
-                Retrofit retrofit = new Retrofit.Builder().baseUrl("https://de5e-140-213-48-210.ap.ngrok.io/Acfixapi/")
+                Retrofit retrofit = new Retrofit.Builder().baseUrl("https://0452-2001-448a-404d-4599-f17b-9d6-efb9-a016.ap.ngrok.io/Acfixapi/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
 
@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<Login> call, Response<Login> response) {
                         if (response.isSuccessful()) {
                             if (response.body().getSuccess() == 1) {
-                                Log.e("cccc", "onResponse: " + response.body().getIdLevel());
+                                Log.e("cccc", "onResponse: " + response.body().getIdUser());
                                 sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
                                 sharedPrefManager.saveSPString(SharedPrefManager.SP_IDUSER, response.body().getIdUser());
                                 sharedPrefManager.saveSPString(SharedPrefManager.SP_USERNAME, response.body().getUsername());

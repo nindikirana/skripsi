@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.nndkrnaf.acfix.deteksi.activity.DeteksiActivity;
 import com.nndkrnaf.acfix.gejala.activity.GejalaActivity;
+import com.nndkrnaf.acfix.hasil_deteksi.activity.HasilDeteksiActivity;
 import com.nndkrnaf.acfix.kerusakan.activity.KerusakanActivity;
 import com.nndkrnaf.acfix.pakar.PakarActivity;
 import com.nndkrnaf.acfix.panduan.PanduanActivity;

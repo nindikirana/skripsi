@@ -1,4 +1,4 @@
-package com.nndkrnaf.acfix.admin.user.activity;
+package com.nndkrnaf.acfix.admin.hasildeteksi.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,10 +13,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.nndkrnaf.acfix.R;
-import com.nndkrnaf.acfix.admin.user.adapter.AdminUserAdapter;
-import com.nndkrnaf.acfix.admin.user.crud.InsertAdminUserActivity;
-import com.nndkrnaf.acfix.admin.user.model.ListAdminUser;
-import com.nndkrnaf.acfix.admin.user.model.ListAdminUserData;
+import com.nndkrnaf.acfix.admin.hasildeteksi.adapter.AdminHasilDeteksiAdapter;
+import com.nndkrnaf.acfix.admin.hasildeteksi.crud.InsertAdminHasilDeteksiActivity;
+import com.nndkrnaf.acfix.admin.hasildeteksi.model.ListAdminHasilDeteksi;
+import com.nndkrnaf.acfix.admin.hasildeteksi.model.ListAdminHasilDeteksiData;
+import com.nndkrnaf.acfix.admin.pengetahuan.activity.AdminPengetahuanActivity;
+import com.nndkrnaf.acfix.admin.pengetahuan.adapter.AdminPengetahuanAdapter;
+import com.nndkrnaf.acfix.admin.pengetahuan.crud.InsertAdminPengetahuanActivity;
+import com.nndkrnaf.acfix.admin.pengetahuan.model.ListAdminPengetahuan;
+import com.nndkrnaf.acfix.admin.pengetahuan.model.ListAdminPengetahuanData;
 import com.nndkrnaf.acfix.utils.ApiClient;
 import com.nndkrnaf.acfix.utils.RequestInterface;
 
@@ -26,20 +31,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AdminUserActivity extends AppCompatActivity {
+public class AdminHasilDeteksiActivity extends AppCompatActivity {
 
     Button btnInsert;
     RequestInterface requestInterface;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    public static AdminUserActivity AdminUserActivity;
-
+    public static AdminHasilDeteksiActivity adminHasilDeteksiActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_user);
+        setContentView(R.layout.activity_admin_hasil_deteksi);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -48,28 +52,28 @@ public class AdminUserActivity extends AppCompatActivity {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminUserActivity.this, InsertAdminUserActivity.class));
+                startActivity(new Intent(AdminHasilDeteksiActivity.this, InsertAdminHasilDeteksiActivity.class));
             }
         });
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         requestInterface = ApiClient.getApiClient().create(RequestInterface.class);
-        AdminUserActivity = this;
+        adminHasilDeteksiActivity = this;
         refresh();
     }
 
     public void refresh() {
-        Call<ListAdminUser> userCall = requestInterface.getUser();
-        userCall.enqueue(new Callback<ListAdminUser>() {
+        Call<ListAdminHasilDeteksi> adminHasilDeteksiCall = requestInterface.getAdminHasilDeteksi();
+        adminHasilDeteksiCall.enqueue(new Callback<ListAdminHasilDeteksi>() {
             @Override
-            public void onResponse(Call<ListAdminUser> call, Response<ListAdminUser> response) {
+            public void onResponse(Call<ListAdminHasilDeteksi> call, Response<ListAdminHasilDeteksi> response) {
                 if(response.isSuccessful()) {
                     if(response.body().isStatus()) {
-                        List<ListAdminUserData> AdminUserList = response.body().getData();
-                        Log.d("bbbb", "Jumlah data User : " +
-                                String.valueOf(AdminUserList.size()));
-                        adapter = new AdminUserAdapter(AdminUserList);
+                        List<ListAdminHasilDeteksiData> AdminHasilDeteksiList = response.body().getData();
+                        Log.d("bbbb", "Jumlah data Pengetahuan : " +
+                                String.valueOf(AdminHasilDeteksiList.size()));
+                        adapter = new AdminHasilDeteksiAdapter(AdminHasilDeteksiList);
                         recyclerView.setAdapter(adapter);
                     } else {
                         Log.e("bbbb", "onResponse success: " + response.body());
@@ -79,11 +83,11 @@ public class AdminUserActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<ListAdminUser> call, Throwable t) {
+            public void onFailure(Call<ListAdminHasilDeteksi> call, Throwable t) {
                 Log.e("bbbb", t.toString());
             }
         });
-    }
+  }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

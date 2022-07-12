@@ -19,6 +19,7 @@ import java.util.List;
 public class RuleAdapter extends RecyclerView.Adapter<RuleAdapter.ViewHolder> {
     List<ListGejalaData> itemList;
     ArrayList<String> idGejalaList = new ArrayList<>();
+    ArrayList<String> namaGejalaList = new ArrayList<>();
 
 
     public RuleAdapter(List<ListGejalaData> itemList) {
@@ -27,6 +28,9 @@ public class RuleAdapter extends RecyclerView.Adapter<RuleAdapter.ViewHolder> {
 
     public ArrayList<String> getIdGejalaList() {
         return idGejalaList;
+    }
+    public ArrayList<String> getNamaGejalaList() {
+        return namaGejalaList;
     }
 
     @NonNull
@@ -45,9 +49,12 @@ public class RuleAdapter extends RecyclerView.Adapter<RuleAdapter.ViewHolder> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     idGejalaList.add(itemList.get(holder.getAdapterPosition()).getIdGejala());
+                    namaGejalaList.add(itemList.get(holder.getAdapterPosition()).getNamaGejala());
                 } else {
-                    String gejala = itemList.get(holder.getAdapterPosition()).getIdGejala();
-                    idGejalaList.remove(gejala);
+                    String idGejala = itemList.get(holder.getAdapterPosition()).getIdGejala();
+                    String namaGejala = itemList.get(holder.getAdapterPosition()).getNamaGejala();
+                    idGejalaList.remove(idGejala);
+                    namaGejalaList.remove(namaGejala);
                 }
             }
         });

@@ -1,14 +1,25 @@
-package com.nndkrnaf.acfix.admin.user.model;
+package com.nndkrnaf.acfix.admin.hasildeteksi.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UpdateAdminUser{
+public class DeleteAdminHasilDeteksi {
+
+	@SerializedName("id")
+	private String id;
 
 	@SerializedName("message")
 	private String message;
 
 	@SerializedName("status")
 	private boolean status;
+
+	public void setId(String id){
+		this.id = id;
+	}
+
+	public String getId(){
+		return id;
+	}
 
 	public void setMessage(String message){
 		this.message = message;
@@ -29,8 +40,9 @@ public class UpdateAdminUser{
 	@Override
  	public String toString(){
 		return 
-			"UpdateAdminUser{" + 
-			"message = '" + message + '\'' + 
+			"Response{" + 
+			"id = '" + id + '\'' + 
+			",message = '" + message + '\'' + 
 			",status = '" + status + '\'' + 
 			"}";
 		}

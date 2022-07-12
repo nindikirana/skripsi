@@ -15,39 +15,47 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".admin.pengetahuan.crud.EditAdminPengetahuanActivity"
-            android:exported="false"
-            android:label="Edit Delete Pengetahuan"/>
-        <activity
-            android:name=".admin.pengetahuan.crud.InsertAdminPengetahuanActivity"
-            android:exported="false"
-            android:label="Create Pengetahuan"/>
-        <activity
-            android:name=".admin.kerusakan.crud.EditAdminKerusakanActivity"
-            android:exported="false"
-            android:label="Edit Delete Kerusakan"/>
-        <activity
-            android:name=".admin.kerusakan.crud.InsertAdminKerusakanActivity"
-            android:exported="false"
-            android:label="Create Kerusakan"/>
-        <activity
-            android:name=".admin.gejala.crud.EditAdminGejalaActivity"
-            android:exported="false"
-            android:label="Edit Delete Gejala"/>
-
-        <activity
-            android:name=".admin.gejala.crud.InsertAdminGejalaActivity"
-            android:exported="false"
-            android:label="Insert Gejala"/>
-
+            android:name=".admin.hasildeteksi.crud.InsertAdminHasilDeteksiActivity"
+            android:exported="false" />
         <activity
             android:name=".admin.user.crud.EditAdminUserActivity"
             android:exported="false"
-            android:label="Edit Delete User"/>
+            android:label="Edit Delete User" />
         <activity
             android:name=".admin.user.crud.InsertAdminUserActivity"
             android:exported="false"
-            android:label="Create User"/>
+            android:label="Create User" />
+        <activity
+            android:name=".admin.user.activity.AdminUserActivity"
+            android:exported="false"
+            android:label="User" />
+        <activity
+            android:name=".hasil_deteksi.activity.DetailHasilDeteksiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.pengetahuan.crud.EditAdminPengetahuanActivity"
+            android:exported="false"
+            android:label="Edit Delete Pengetahuan" />
+        <activity
+            android:name=".admin.pengetahuan.crud.InsertAdminPengetahuanActivity"
+            android:exported="false"
+            android:label="Create Pengetahuan" />
+        <activity
+            android:name=".admin.kerusakan.crud.EditAdminKerusakanActivity"
+            android:exported="false"
+            android:label="Edit Delete Kerusakan" />
+        <activity
+            android:name=".admin.kerusakan.crud.InsertAdminKerusakanActivity"
+            android:exported="false"
+            android:label="Create Kerusakan" />
+        <activity
+            android:name=".admin.gejala.crud.EditAdminGejalaActivity"
+            android:exported="false"
+            android:label="Edit Delete Gejala" />
+        <activity
+            android:name=".admin.gejala.crud.InsertAdminGejalaActivity"
+            android:exported="false"
+            android:label="Insert Gejala" />
         <activity
             android:name=".rules.activity.RuleActivity"
             android:exported="false"
@@ -70,10 +78,6 @@
             android:exported="false"
             android:label="Gejala" />
         <activity
-            android:name=".admin.user.activity.AdminUserActivity"
-            android:exported="false"
-            android:label="User" />
-        <activity
             android:name=".admin.leveluser.activity.AdminLevelUserActivity"
             android:exported="false"
             android:label="Level User" />
@@ -82,7 +86,7 @@
             android:exported="false"
             android:label="Kerusakan" />
         <activity
-            android:name=".admin.hasildeteksi.AdminHasilDeteksiActivity"
+            android:name=".admin.hasildeteksi.activity.AdminHasilDeteksiActivity"
             android:exported="false"
             android:label="Hasil Deteksi" />
         <activity
@@ -90,7 +94,7 @@
             android:exported="false"
             android:label="Pengetahuan" />
         <activity
-            android:name=".HasilDeteksiActivity"
+            android:name=".hasil_deteksi.activity.HasilDeteksiActivity"
             android:exported="false"
             android:label="Hasil Deteksi" />
         <activity

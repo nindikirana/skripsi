@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatSpinner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,11 +16,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.nndkrnaf.acfix.R;
+import com.nndkrnaf.acfix.admin.leveluser.model.DeleteAdminLevelUser;
 import com.nndkrnaf.acfix.admin.leveluser.model.ListAdminLevelUser;
 import com.nndkrnaf.acfix.admin.leveluser.model.ListAdminLevelUserData;
 import com.nndkrnaf.acfix.admin.user.activity.AdminUserActivity;
 import com.nndkrnaf.acfix.admin.user.adapter.LevelUserSpinnerAdapter;
 import com.nndkrnaf.acfix.admin.user.model.DeleteAdminUser;
+import com.nndkrnaf.acfix.admin.user.model.ListAdminUser;
 import com.nndkrnaf.acfix.admin.user.model.UpdateAdminUser;
 import com.nndkrnaf.acfix.utils.ApiClient;
 import com.nndkrnaf.acfix.utils.RequestInterface;
@@ -34,16 +37,16 @@ import retrofit2.Response;
 public class EditAdminUserActivity extends AppCompatActivity {
 
     EditText edtIdUser;
+    AppCompatSpinner spIdLevel;
     EditText edtUsername;
     EditText edtEmail;
     EditText edtPassword;
-    AppCompatSpinner spIdLevel;
     Button btnUpdate, btnDelete;
     RequestInterface requestInterface;
 
-    private String selectedLevelUser;
+    private String selectedIdLevel;
     private LevelUserSpinnerAdapter spLevelUserAdapter;
-    private String currentLevelUser;
+    private String currentIdLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,20 +57,23 @@ public class EditAdminUserActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         edtIdUser = findViewById(R.id.edtAdminUserIdUser);
+        spIdLevel = findViewById(R.id.spIdLevel);
         edtUsername = findViewById(R.id.edtAdminUserUsername);
         edtEmail = findViewById(R.id.edtAdminUserEmail);
-        edtPassword = findViewById(R.id.edtAdminUserPassword);
-        spIdLevel = findViewById(R.id.spIdLevel);
+        edtPassword= findViewById(R.id.edtAdminUserPassword);
+
         Intent mIntent = getIntent();
 
         edtIdUser.setText(mIntent.getStringExtra("Id_User"));
         edtIdUser.setTag(edtIdUser.getKeyListener());
         edtIdUser.setKeyListener(null);
 
+        currentIdLevel = mIntent.getStringExtra("Id_Level");
         edtUsername.setText(mIntent.getStringExtra("Username"));
         edtEmail.setText(mIntent.getStringExtra("Email"));
         edtPassword.setText(mIntent.getStringExtra("Password"));
-        currentLevelUser = mIntent.getStringExtra("Id_Level");
+
+        initSpinner();
 
         requestInterface = ApiClient.getApiClient().create(RequestInterface.class);
 
@@ -91,23 +97,37 @@ public class EditAdminUserActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("WOELAH", "onClick: "+ selectedIdLevel);
                 Call<UpdateAdminUser> updateUserCall = requestInterface.updateUser(
                         edtIdUser.getText().toString(),
+                        selectedIdLevel,
                         edtUsername.getText().toString(),
                         edtEmail.getText().toString(),
-                        edtPassword.getText().toString(),
-                        selectedLevelUser);
+                        edtPassword.getText().toString());
+
+//      "U665c", "L0002", "a", "a@gmail.com", "a123"                  );
+
 
                 updateUserCall.enqueue(new Callback<UpdateAdminUser>() {
                     @Override
                     public void onResponse(Call<UpdateAdminUser> call, Response<UpdateAdminUser> response) {
                         AdminUserActivity.AdminUserActivity.refresh();
-                        finish();
+                        if (response.isSuccessful()){
+                            if(response.code()==200){
+                                finish();
+                            }else{
+                                Log.d("UPDATE USER WOI", "onResponse: " + String.valueOf(response.message()));
+                            }
+                        }else{
+                            Log.d("UPDATE USER WOI", "onResponse: " + String.valueOf(response.message()));
+
+                        }
                     }
 
                     @Override
                     public void onFailure(Call<UpdateAdminUser> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Error : " + t.getMessage(), Toast.LENGTH_LONG).show();
+                        Log.d("UPDATE USER WOI", "onFailure: " +  t.getMessage());
+
                     }
                 });
             }
@@ -129,7 +149,7 @@ public class EditAdminUserActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<DeleteAdminUser> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(),"Error : " + t.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Error : " + t.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     });
                 } else {
@@ -138,16 +158,17 @@ public class EditAdminUserActivity extends AppCompatActivity {
             }
         });
     }
+
     private void initSpinner() {
 
     }
+
     private void setSpinnerLevelUserData(List<ListAdminLevelUserData> data) {
         List<String> stringData = new ArrayList<>();
-        final List<String> stringIdData = new ArrayList<>();
+
         int position = 0;
-        for (ListAdminLevelUserData userData : data) {
-            stringData.add(userData.getLevel());
-            stringIdData.add(userData.getIdLevel());
+        for (ListAdminLevelUserData levelUserData : data) {
+            stringData.add(levelUserData .getIdLevel());
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
@@ -160,7 +181,7 @@ public class EditAdminUserActivity extends AppCompatActivity {
         spIdLevel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedLevelUser = stringIdData.get(position);
+                selectedIdLevel = stringData.get(position);
             }
 
             @Override
@@ -170,12 +191,13 @@ public class EditAdminUserActivity extends AppCompatActivity {
         });
 
         for (int i=0; i <= data.size()-1; i++) {
-            if (currentLevelUser.equals(stringIdData.get(i))) {
+            if (currentIdLevel.equals(stringData.get(i))) {
                 position = i;
             }
         }
         spIdLevel.setSelection(position);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

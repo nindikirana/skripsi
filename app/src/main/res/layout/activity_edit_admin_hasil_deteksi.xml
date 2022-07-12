@@ -5,70 +5,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        tools:context=".admin.pengetahuan.crud.EditAdminPengetahuanActivity">
+        tools:context=".admin.hasildeteksi.crud.EditAdminHasilDeteksiActivity">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_height="match_parent"
             android:layout_width="match_parent">
 
             <EditText
-                android:id="@+id/edtIdPengetahuan"
+                android:id="@+id/edtAdminHasilDeteksiIdDeteksi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:hint="Id Pengetahuan" />
+                android:hint="Id Deteksi" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:orientation="vertical">
+            android:layout_width="match_parent">
 
-            <TextView
+            <EditText
+                android:id="@+id/edtAdminHasilDeteksiIdUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Id Kerusakan" />
+                android:hint="Id User" />
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:layout_width="match_parent"
-                android:paddingLeft="0dp"
-                style="@style/Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"
-                android:id="@+id/spIdKerusakan"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:orientation="vertical">
+            android:layout_width="match_parent">
 
-            <TextView
+            <EditText
+                android:id="@+id/edtAdminHasilDeteksiIdKerusakan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Id Gejala" />
+                android:hint="Id Kerusakan" />
 
-            <androidx.appcompat.widget.AppCompatSpinner
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <EditText
+                android:id="@+id/edtAdminHasilDeteksiNamaGejala"
                 android:layout_width="match_parent"
-                android:paddingLeft="0dp"
-                style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:layout_height="wrap_content"
-                android:id="@+id/spIdGejala"/>
+                android:hint="Nama Gejala" />
 
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <LinearLayout
             android:id="@+id/Linearlayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNoSIM"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:orientation="vertical">

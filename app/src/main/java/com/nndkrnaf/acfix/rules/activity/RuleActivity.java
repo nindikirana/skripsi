@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.nndkrnaf.acfix.R;
 import com.nndkrnaf.acfix.gejala.model.ListGejala;
+import com.nndkrnaf.acfix.hasil_deteksi.model.AddHasilDeteksi;
+import com.nndkrnaf.acfix.login.sp.SharedPrefManager;
 import com.nndkrnaf.acfix.rules.adapter.RuleAdapter;
 import com.nndkrnaf.acfix.rules.interfaces.RuleView;
 import com.nndkrnaf.acfix.rules.model.RuleResponse;
@@ -29,7 +31,11 @@ public class RuleActivity extends AppCompatActivity implements RuleView {
     Button btSubmit,btClear;
     RuleAdapter adapter;
     RulePresenter presenter;
+    String namaGejala = "";
+    private SharedPrefManager sharedPrefManager;
     ArrayList<String> idGejalaList = new ArrayList<>();
+    ArrayList<String> namaGejalaList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +44,7 @@ public class RuleActivity extends AppCompatActivity implements RuleView {
         btSubmit = findViewById(R.id.btSubmitRule);
         btClear = findViewById(R.id.btClearRule);
         initPresenter();
+        sharedPrefManager = new SharedPrefManager(this);
     }
 
     private void initPresenter() {
@@ -52,10 +59,14 @@ public class RuleActivity extends AppCompatActivity implements RuleView {
            Log.d("NIDIXX", "submitRule: "+idGejalaList.get(i));
        }
         presenter.submitRules(idGejalaList);
+
     }
 
     @Override
     public void onSuccess(RuleResponse body) {
+        for (String nama:namaGejalaList){
+            namaGejala += nama+", ";
+        }
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Hasil Deteksi").setMessage("Nama Kerusakan: \n" + body.getData().get(0).getNamaKerusakan() + "\n\n" + "Solusi: \n" + body.getData().get(0).getSolusi())
                 .setPositiveButton("Close", new DialogInterface.OnClickListener() {
@@ -63,7 +74,15 @@ public class RuleActivity extends AppCompatActivity implements RuleView {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
-                });
+                }).setNegativeButton("Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Log.d("NAMA GEJALA", namaGejala);
+            presenter.sendDeteksi(sharedPrefManager.getId_User(),body.getData().get(0).getIdKerusakan(),namaGejala);
+            }
+        });
+
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
     }
@@ -80,7 +99,10 @@ public class RuleActivity extends AppCompatActivity implements RuleView {
         btClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //idGejalaList.clear();
+                namaGejala="";
                 initAdapter(body);
+
             }
         });
         btSubmit.setOnClickListener(v->{
@@ -96,11 +118,26 @@ public class RuleActivity extends AppCompatActivity implements RuleView {
         rv.setHasFixedSize(true);
         rv.setAdapter(adapter);
         idGejalaList = adapter.getIdGejalaList();
+        namaGejalaList = adapter.getNamaGejalaList();
+
 
     }
 
     @Override
     public void onGetGejalaError(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onSendDeteksiSuccess(AddHasilDeteksi body) {
+        namaGejala = "";
+        Toast.makeText(getApplicationContext(), "Berhasil Menyimpan Deteksi", Toast.LENGTH_LONG).show();
+        //finish();
+    }
+
+    @Override
+    public void onSendDeteksiError(String toString) {
+        Log.d("SEND DETEKSI ERROR", "onSendDeteksiError: "+ toString);
+        Toast.makeText(getApplicationContext(), "Gagal Menyimpan Deteksi", Toast.LENGTH_LONG).show();
     }
 }

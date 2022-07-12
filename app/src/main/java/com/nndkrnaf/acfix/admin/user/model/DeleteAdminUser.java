@@ -2,7 +2,7 @@ package com.nndkrnaf.acfix.admin.user.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DeleteAdminUser {
+public class DeleteAdminUser{
 
 	@SerializedName("id")
 	private String id;
@@ -40,7 +40,7 @@ public class DeleteAdminUser {
 	@Override
  	public String toString(){
 		return 
-			"Response{" + 
+			"DeleteAdminUser{" + 
 			"id = '" + id + '\'' + 
 			",message = '" + message + '\'' + 
 			",status = '" + status + '\'' + 

@@ -23,6 +23,6 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#70376c"
-        android:text="Add Level User" />
+        android:text="Add Kerusakan" />
 
 </RelativeLayout>

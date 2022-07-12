@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.nndkrnaf.acfix.admin.gejala.activity.AdminGejalaActivity;
-import com.nndkrnaf.acfix.admin.hasildeteksi.AdminHasilDeteksiActivity;
+import com.nndkrnaf.acfix.admin.hasildeteksi.activity.AdminHasilDeteksiActivity;
 import com.nndkrnaf.acfix.admin.kerusakan.activity.AdminKerusakanActivity;
 import com.nndkrnaf.acfix.admin.leveluser.activity.AdminLevelUserActivity;
 import com.nndkrnaf.acfix.admin.pengetahuan.activity.AdminPengetahuanActivity;

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSpinner;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,16 +32,14 @@ import retrofit2.Response;
 
 public class InsertAdminUserActivity extends AppCompatActivity {
 
-    EditText edtUsername;
-    EditText edtEmail;
-    EditText edtPassword;
     AppCompatSpinner spIdLevel;
+    EditText edtUsername, edtEmail, edtPassword;
     Button btnInsert;
     RequestInterface requestInterface;
 
     private String selectedLevelUser;
     private LevelUserSpinnerAdapter spLevelUserAdapter;
-    private String currentLevelUser;
+    private String currentIdLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +49,10 @@ public class InsertAdminUserActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        edtUsername = findViewById(R.id.edtAdminUserUsername);
-        edtEmail = findViewById(R.id.edtAdminUserEmail);
-        edtPassword = findViewById(R.id.edtAdminUserPassword);
-        spIdLevel = findViewById(R.id.spIdLevel);
+        spIdLevel= findViewById(R.id.spIdLevel);
+        edtUsername= findViewById(R.id.edtAdminUserUsername);
+        edtEmail= findViewById(R.id.edtAdminUserEmail);
+        edtPassword= findViewById(R.id.edtAdminUserPassword);
 
         requestInterface = ApiClient.getApiClient().create(RequestInterface.class);
 
@@ -62,7 +61,7 @@ public class InsertAdminUserActivity extends AppCompatActivity {
             public void onResponse(Call<ListAdminLevelUser> call, Response<ListAdminLevelUser> response) {
                 if (response.isSuccessful()) {
                     if (response.body().isStatus()) {
-                        setSpinnerLevelUserData(response.body().getData());
+                        setSpinnerIdLevelData(response.body().getData());
                     }
                 }
             }
@@ -77,14 +76,16 @@ public class InsertAdminUserActivity extends AppCompatActivity {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call<UpdateAdminUser> postUserCall =
+                Log.d("PARAMETER USER", selectedLevelUser);
+                Call<UpdateAdminUser> postAdminUserCall =
                         requestInterface.postUser(
+                                selectedLevelUser,
                                 edtUsername.getText().toString(),
                                 edtEmail.getText().toString(),
-                                edtPassword.getText().toString(),
-                                selectedLevelUser);
+                                edtPassword.getText().toString()
+                                );
 
-                postUserCall.enqueue(new Callback<UpdateAdminUser>() {
+                postAdminUserCall.enqueue(new Callback<UpdateAdminUser>() {
                     @Override
                     public void onResponse(Call<UpdateAdminUser> call, Response<UpdateAdminUser> response) {
                         AdminUserActivity.AdminUserActivity.refresh();
@@ -100,22 +101,11 @@ public class InsertAdminUserActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return true;
-    }
-
-    private void setSpinnerLevelUserData(List<ListAdminLevelUserData> data) {
+    private void setSpinnerIdLevelData(List<ListAdminLevelUserData> data) {
         List<String> stringData = new ArrayList<>();
-        final List<String> stringIdData = new ArrayList<>();
         int position = 0;
-        for (ListAdminLevelUserData userData : data) {
-            stringData.add(userData.getLevel());
-            stringIdData.add(userData.getIdLevel());
+        for (ListAdminLevelUserData levelUserData : data) {
+            stringData.add(levelUserData.getIdLevel());
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
@@ -128,7 +118,7 @@ public class InsertAdminUserActivity extends AppCompatActivity {
         spIdLevel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedLevelUser = stringIdData.get(position);
+                selectedLevelUser = stringData.get(position);
             }
 
             @Override
@@ -140,5 +130,13 @@ public class InsertAdminUserActivity extends AppCompatActivity {
         spIdLevel.setSelection(position);
     }
 
-}
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
 
+        return true;
+
+    }
+}

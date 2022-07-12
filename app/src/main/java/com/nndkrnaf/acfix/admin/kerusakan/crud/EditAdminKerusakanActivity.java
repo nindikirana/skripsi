@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.nndkrnaf.acfix.R;
+import com.nndkrnaf.acfix.admin.gejala.activity.AdminGejalaActivity;
 import com.nndkrnaf.acfix.admin.kerusakan.activity.AdminKerusakanActivity;
 import com.nndkrnaf.acfix.admin.kerusakan.model.DeleteAdminKerusakan;
 import com.nndkrnaf.acfix.admin.kerusakan.model.UpdateAdminKerusakan;
@@ -84,19 +86,28 @@ public class EditAdminKerusakanActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edtIdKerusakan.getText().toString().trim().isEmpty() == false) {
-                    Call<DeleteAdminKerusakan> deleteAdminKerusakanCall = requestInterface.deleteAdminKerusakan(edtIdKerusakan.getText().toString(), true);
+                if (!edtIdKerusakan.getText().toString().trim().isEmpty()) {
+                    Call<DeleteAdminKerusakan> deleteAdminKerusakanCall = requestInterface.deleteAdminKerusakan(edtIdKerusakan.getText().toString());
                     deleteAdminKerusakanCall.enqueue(new Callback<DeleteAdminKerusakan>() {
                         @Override
                         public void onResponse(Call<DeleteAdminKerusakan> call, Response<DeleteAdminKerusakan> response) {
-                            Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_LONG).show();
-                            AdminKerusakanActivity.AdminKerusakanActivity.refresh();
-                            finish();
+                            if (response.isSuccessful()){
+                                if(response.code()==200){
+                                    AdminKerusakanActivity.AdminKerusakanActivity.refresh();
+                                    Log.d("DELETE KERUSAKAN WOI", "onResponse: " + String.valueOf(response.message()));
+                                    finish();
+                                }else{
+                                    Log.d("DELETE KERUSAKAN WOI", "onResponse: " + String.valueOf(response.message()));
+                                }
+                            }else{
+                                Log.d("DELETE KERUSAKAN WOI", "onResponse: " + String.valueOf(response.message()));
+
+                            }
                         }
 
                         @Override
                         public void onFailure(Call<DeleteAdminKerusakan> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Error : " + t.getMessage(), Toast.LENGTH_LONG).show();
+                            Log.d("DELETE GKERUSAKAN WOI", "onFailure: " +  t.getMessage());
                         }
                     });
                 } else {

@@ -1,9 +1,12 @@
 package com.nndkrnaf.acfix.admin.gejala.crud;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +16,8 @@ import com.nndkrnaf.acfix.R;
 import com.nndkrnaf.acfix.admin.gejala.activity.AdminGejalaActivity;
 import com.nndkrnaf.acfix.admin.gejala.model.DeleteAdminGejala;
 import com.nndkrnaf.acfix.admin.gejala.model.UpdateAdminGejala;
+import com.nndkrnaf.acfix.admin.leveluser.activity.AdminLevelUserActivity;
+import com.nndkrnaf.acfix.admin.leveluser.model.DeleteAdminLevelUser;
 import com.nndkrnaf.acfix.admin.user.activity.AdminUserActivity;
 import com.nndkrnaf.acfix.admin.user.model.DeleteAdminUser;
 import com.nndkrnaf.acfix.utils.ApiClient;
@@ -77,19 +82,29 @@ public class EditAdminGejalaActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (edtIdGejala.getText().toString().trim().isEmpty() == false) {
-                    Call<DeleteAdminGejala> deleteAdminGejalaCall = requestInterface.deleteAdminGejala(edtIdGejala.getText().toString(), true);
+                    Call<DeleteAdminGejala> deleteAdminGejalaCall = requestInterface.deleteAdminGejala(edtIdGejala.getText().toString());
                     deleteAdminGejalaCall.enqueue(new Callback<DeleteAdminGejala>() {
                         @Override
                         public void onResponse(Call<DeleteAdminGejala> call, Response<DeleteAdminGejala> response) {
-                            Toast.makeText(getApplicationContext(), response.message(), Toast.LENGTH_LONG).show();
-                            AdminGejalaActivity.AdminGejalaActivity.refresh();
-                            finish();
+                            if (response.isSuccessful()){
+                                if(response.code()==200){
+                                    AdminGejalaActivity.AdminGejalaActivity.refresh();
+                                    Log.d("DELETE GEJALA WOI", "onResponse: " + String.valueOf(response.message()));
+                                    finish();
+                                }else{
+                                    Log.d("DELETE GEJALA WOI", "onResponse: " + String.valueOf(response.message()));
+                                }
+                            }else{
+                                Log.d("DELETE GEJALA WOI", "onResponse: " + String.valueOf(response.message()));
+
+                            }
                         }
 
                         @Override
                         public void onFailure(Call<DeleteAdminGejala> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(),"Error : " + t.getMessage(), Toast.LENGTH_LONG).show();
+                            Log.d("DELETE GEJALA WOI", "onFailure: " +  t.getMessage());
                         }
                     });
                 } else {
@@ -97,6 +112,14 @@ public class EditAdminGejalaActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return true;
     }
 }
